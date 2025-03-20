@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { CssBaseline, Container, Button, Dialog, DialogContent } from '@mui/material';
+import PaymentForm from './components/PaymentForm';
 import './App.css';
 
 function App() {
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CssBaseline />
+      <Container>
+        <Button variant="contained" color="primary" onClick={handleClickOpen}>
+          Open Payment Form
+        </Button>
+        <Dialog open={open} onClose={handleClose}>
+          {/* <DialogContent> */}
+            <PaymentForm />
+          {/* </DialogContent> */}
+        </Dialog>
+      </Container>
     </div>
   );
 }
