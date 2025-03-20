@@ -8,7 +8,12 @@ import {
   Button,
   ToggleButton,
   ToggleButtonGroup,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
 } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const PaymentForm = () => {
   const [billingCycle, setBillingCycle] = useState('monthly');
@@ -30,6 +35,18 @@ const PaymentForm = () => {
     console.log('Selected Plan:', selectedPlan);
     console.log('Billing Cycle:', billingCycle);
   };
+
+  const planFeatures = [
+    'No Credit Card Required',
+    'Ideal For Companies Of Any Size Focused On Cloud Cost Optimization.',
+    'AWS Root And Child Account Integration',
+    'Risk & Compliance Management Strategies',
+    '3 Parallel User Accounts',
+    'For Startups And Companies With Monthly Cloud Usage Up To $20K',
+    'Budgeted Cost Distribution',
+    'Integrations And API With Jira, Jenkins',
+    'Object Storage Usage Profiling And Optimization',
+  ];
 
   return (
     <Box sx={{ maxWidth: 600, mx: 'auto', mt: 2 }}>
@@ -104,7 +121,21 @@ const PaymentForm = () => {
               </Card>
             </Grid>
           </Grid>
-          
+          <Box component="section" sx={{ marginTop: 2, p: 2, background: '#EEF4FF', borderRadius: '10px' }}>
+            <Typography variant="h6" gutterBottom>
+              Basic Plan Features:
+            </Typography>
+            <List sx={{ p: 0, display: 'grid', gridTemplateColumns: '1fr 1fr', fontSize: '14px' }}>
+              {planFeatures.map((feature, index) => (
+                <ListItem key={index} sx={{ padding: 0 }}>
+                  <ListItemIcon sx={{ minWidth: "0px", paddingRight: 2 }}>
+                    <CheckCircleIcon color="success" />
+                  </ListItemIcon>
+                  <ListItemText primary={feature} sx={{ fontSize: '14px' }} />
+                </ListItem>
+              ))}
+            </List>
+          </Box>
           <Box sx={{ mt: 2 }}>
             <Button
               variant="contained"
@@ -116,7 +147,7 @@ const PaymentForm = () => {
               Proceed
             </Button>
           </Box>
-          <Button variant="contained" align="center" sx={{ mt: 2 }} fullWidth color='secondary'> 
+          <Button variant="contained" align="center" sx={{ mt: 2 }} fullWidth color='secondary'>
             Start Your 3-Day Free Trial!
           </Button>
         </CardContent>
