@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CssBaseline, Container, Button, Dialog, DialogContent } from '@mui/material';
 import PaymentForm from './components/PaymentForm';
+import PaymentFormTwo from './components/PaymentFormTwo';
 import './App.css';
 
 function App() {
@@ -21,11 +22,13 @@ function App() {
         <Button variant="contained" color="primary" onClick={handleClickOpen}>
           Open Payment Form
         </Button>
-        <Dialog open={open} onClose={handleClose}>
+        
+        {/* <Dialog open={open} onClose={handleClose}> */}
           {/* <DialogContent> */}
-            <PaymentForm />
+            {/* <PaymentForm /> */}
           {/* </DialogContent> */}
-        </Dialog>
+        {/* </Dialog> */}
+        <PaymentFormTwo open={open} onClose={handleClose}/>
       </Container>
     </div>
   );
