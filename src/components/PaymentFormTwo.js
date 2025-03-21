@@ -11,6 +11,7 @@ import {
   Paper,
 } from "@mui/material";
 import { styled } from "@mui/system";
+import { CheckCircle } from "@mui/icons-material";
 
 // **Styled Components for Precision**
 const ModalContainer = styled(Box)(({ theme }) => ({
@@ -47,6 +48,7 @@ const FeatureList = styled("ul")({
     alignItems: "center",
     gap: "8px",
     marginBottom: "5px",
+    fontSize: "14px", // Set font size here
   },
 });
 
@@ -153,21 +155,25 @@ const PricingModal = ({ open, handleClose }) => {
         </Grid>
 
         {/* Feature Sections */}
-        <Grid container spacing={2} mt={3}>
+        <Grid container spacing={2} mt={3} sx={{ background: "#EEF4FF", borderRadius:4 }}>
           <Grid item xs={12} sm={6}>
             <Typography variant="subtitle1" fontWeight="bold">
               Basic Plan Features:
             </Typography>
             <FeatureList>
               {plans[0].features.map((feature, index) => (
-                <li key={index}>✅ {feature}</li>
+                <li key={index}>
+                  <CheckCircle sx={{ color: "#0F993E" }} /> {feature}
+                </li>
               ))}
             </FeatureList>
           </Grid>
           <Grid item xs={12} sm={6}>
             <FeatureList>
               {plans[1].features.map((feature, index) => (
-                <li key={index}>✅ {feature}</li>
+                <li key={index}>
+                  <CheckCircle sx={{ color: "#0F993E" }} /> {feature}
+                </li>
               ))}
             </FeatureList>
           </Grid>
@@ -182,19 +188,27 @@ const PricingModal = ({ open, handleClose }) => {
               background: "linear-gradient(96.69deg, #48A1FA -1.71%, #541CB0 98.6%)",
               color: "#fff",
               padding: "12px",
-                borderRadius: "5px",
+              borderRadius: "5px",
             }}
           >
             Proceed
           </Button>
-          <Button variant="body2" mt={2} color="secondary" fullWidth 
-          sx={{
+          <Button
+            variant="body2"
+            mt={2}
+            color="secondary"
+            fullWidth
+            sx={{
               background: "#4899F60D",
               color: "#2D64BF",
               padding: "12px",
               marginTop: "10px",
               borderRadius: "5px",
-            }} >
+              '&:hover': {
+                background: "#EEF4FF",
+              },
+            }}
+          >
             Start Your 3-Day Free Trial!
           </Button>
         </Box>
