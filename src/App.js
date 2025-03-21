@@ -3,6 +3,8 @@ import { CssBaseline, Container, Button, Dialog, DialogContent } from '@mui/mate
 import PaymentForm from './components/PaymentForm';
 import PaymentFormTwo from './components/PaymentFormTwo';
 import './App.css';
+import PlanSettingsModal from './components/PlanSettingsModal';
+import PlanSettingsModalTwo from './components/PlanSettingsModalTwo';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -28,7 +30,9 @@ function App() {
             {/* <PaymentForm /> */}
           {/* </DialogContent> */}
         {/* </Dialog> */}
-        <PaymentFormTwo open={open} onClose={handleClose}/>
+        {/* <PaymentFormTwo open={open} onClose={handleClose}/> */}
+        {/* <PlanSettingsModal open={open} handleClose={handleClose} /> */}
+        <PlanSettingsModalTwo open={open} handleClose={handleClose} />
       </Container>
     </div>
   );
